@@ -11,6 +11,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 public class MusicService extends Service {
+
     private MyPlayer myPlayer;
     private IBinder binder;
 
@@ -26,14 +27,20 @@ public class MusicService extends Service {
         myPlayer.play();
         return binder;
     }
-
     @Override
     public boolean onUnbind(Intent intent) {
         myPlayer.stop();
         return super.onUnbind(intent);
     }
+
+    public MyPlayer getMyPlayer() {
+        return myPlayer;
+    }
     public void fastForward(){
-        myPlayer.fastForward(16000); // seek to ...
+        myPlayer.fastForward(16000 + myPlayer.getMediaPlayer().getCurrentPosition()); // seek to ...
+    }
+    public void backForward(){
+        myPlayer.fastForward(-16000 + myPlayer.getMediaPlayer().getCurrentPosition());
     }
 
     public boolean isPlaying(){
@@ -48,9 +55,10 @@ public class MusicService extends Service {
 
     @Override
     public void onDestroy() {
+        myPlayer.reset();
         super.onDestroy();
-        myPlayer.release();
     }
+
 
     public class MyBinder extends Binder {
         public MusicService getService() {
@@ -62,18 +70,22 @@ public class MusicService extends Service {
 
         private MediaPlayer mediaPlayer;
 
+        public MediaPlayer getMediaPlayer() {
+            return mediaPlayer;
+        }
+
         public MyPlayer(Context context) {
             // add song to ...
             mediaPlayer = MediaPlayer.create(
                     context, R.raw.shapeofyou);
             // set mode loop
-            mediaPlayer.setLooping(true);
+//            mediaPlayer.setLooping(true);
         }
         public boolean isPlaying(){
             return mediaPlayer.isPlaying();
         }
-        public void release(){
-            mediaPlayer.release();
+        public void reset(){
+            mediaPlayer.reset();
         }
         public void fastForward(int pos){
             mediaPlayer.seekTo(pos);
@@ -93,4 +105,6 @@ public class MusicService extends Service {
                 mediaPlayer.stop();
             }
         }
+
+
 }

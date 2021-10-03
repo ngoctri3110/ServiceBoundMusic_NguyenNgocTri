@@ -29,8 +29,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="428dp"
-        android:layout_height="368dp"
+        android:layout_width="431dp"
+        android:layout_height="337dp"
         android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,28 +51,17 @@
         app:layout_constraintStart_toStartOf="@+id/imageView3" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/time" />
-
-    <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/sbTime"
         app:srcCompat="@drawable/shuffle" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imgTuaVe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -86,9 +75,9 @@
         android:layout_height="130dp"
         android:layout_marginStart="40dp"
         android:scaleType="center"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintBottom_toBottomOf="@+id/imgTuaVe"
+        app:layout_constraintStart_toStartOf="@+id/imgTuaVe"
+        app:layout_constraintTop_toTopOf="@+id/imgTuaVe"
         app:layout_constraintVertical_bias="0.543"
         app:srcCompat="@drawable/play" />
 
@@ -162,5 +151,41 @@
         app:layout_constraintStart_toEndOf="@+id/imageView13"
         app:layout_constraintTop_toTopOf="@+id/imageView13"
         app:srcCompat="@drawable/user" />
+
+    <SeekBar
+        android:id="@+id/sbTime"
+        android:layout_width="310dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/tvStart"
+        android:layout_width="53dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="40dp"
+        android:text="00:00"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/sbTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.312" />
+
+    <TextView
+        android:id="@+id/tvFinish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:text="00:00"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/sbTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.384" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
