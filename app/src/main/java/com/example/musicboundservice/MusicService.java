@@ -79,7 +79,7 @@ public class MusicService extends Service {
             mediaPlayer = MediaPlayer.create(
                     context, R.raw.shapeofyou);
             // set mode loop
-//            mediaPlayer.setLooping(true);
+            mediaPlayer.setLooping(true);
         }
         public boolean isPlaying(){
             return mediaPlayer.isPlaying();
